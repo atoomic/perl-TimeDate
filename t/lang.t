@@ -1,24 +1,23 @@
-#!/usr/local/bin/perl -w
-
-use  Date::Language;
-
+use strict;
+use warnings;
+use Test::More;
+use Date::Language;
 
 my $time = time;
-my $v;
 
-my @lang = qw(English German Italian Bulgarian);
+my @lang = qw(
+    English German Italian Bulgarian
+    French Spanish Swedish Norwegian
+    Danish Dutch Romanian Czech
+    Hungarian Finnish Austrian Brazilian
+    Turkish
+);
 
-print "1..", scalar(@lang),"\n";
-
-my $loop = 1;
-my $lang;
-
-foreach $lang (@lang)
-{
- my $l = Date::Language->new($lang);
- $v = $l->str2time($l->ctime($time));
-
- print $v == $time ? "ok $loop\n" : "FAIL $loop\n";
- $loop++;
+for my $lang (@lang) {
+    my $l = Date::Language->new($lang);
+    my $str = $l->ctime($time);
+    my $parsed = $l->str2time($str);
+    is($parsed, $time, "$lang: round-trip ctime/str2time");
 }
 
+done_testing;

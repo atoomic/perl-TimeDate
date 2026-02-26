@@ -10,8 +10,8 @@ our $VERSION = "1.04";
 our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
 @DoW = qw(dimanche lundi mardi mercredi jeudi vendredi samedi);
-@MoY = qw(janvier février mars avril mai juin 
-          juillet août septembre octobre novembre décembre);
+@MoY = qw(janvier fï¿½vrier mars avril mai juin 
+          juillet aoï¿½t septembre octobre novembre dï¿½cembre);
 @DoWs = map { substr($_,0,3) } @DoW;
 @MoYs = map { substr($_,0,3) } @MoY;
 $MoYs[6] = 'jul';
@@ -32,6 +32,6 @@ sub format_b { $MoYs[$_[0]->[4]] }
 sub format_B { $MoY[$_[0]->[4]] }
 sub format_h { $MoYs[$_[0]->[4]] }
 sub format_p { $_[0]->[2] >= 12 ?  $AMPM[1] : $AMPM[0] }
-sub format_o { $_[0]->[3] }
+sub format_o { sprintf("%2de",$_[0]->[3]) }
 
 1;

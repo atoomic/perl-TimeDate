@@ -169,7 +169,7 @@ sub wkyr {
 }
 
 ##
-## these 6 formatting routins need to be *copied* into the language
+## these 6 formatting routines need to be *copied* into the language
 ## specific packages
 ##
 
@@ -269,7 +269,7 @@ __END__
 
 =head1 NAME
 
-Date::Format - Date formating subroutines
+Date::Format - Date formatting subroutines
 
 =head1 SYNOPSIS
 
@@ -322,7 +322,7 @@ conversion specification C<"%a %b %e %T %Y\n">
 
 =head1 MULTI-LANGUAGE SUPPORT
 
-Date::Format is capable of formating into several languages by creating
+Date::Format is capable of formatting into several languages by creating
 a language specific object and calling methods, see L<Date::Language>
 
 	my $lang = Date::Language->new('German');

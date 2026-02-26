@@ -87,7 +87,7 @@ __END__
 
 =head1 NAME
 
-Date::Language - Language specific date formating and parsing
+Date::Language - Language specific date formatting and parsing
 
 =head1 SYNOPSIS
 
@@ -142,4 +142,3 @@ See L<Date::Parse/str2time>
 See L<Date::Parse/strptime>
 
 =back
-

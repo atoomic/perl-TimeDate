@@ -1,13 +1,10 @@
-#!/usr/local/bin/perl -w
+use strict;
+use warnings;
+use Test::More;
+use Date::Parse;
 
-#Thanks to Andreas Koenig for converting all those dates to numbers
-#and adding the folloing acknowledgement into Date/t/getdate.t
-#Thanks to Graham Barr for writing these tests. Slightly adjusted for
-#the C version by Andreas Koenig, 96-06-08.
-   
-use  Date::Parse;
-
-$data = qq!1995-01-24                ;790905600
+my @data = split /\n/, <<'DATA';
+1995-01-24                ;790905600
 1995-06-24                           ;803952000
 92/01/02 12:01			     ;694353660
 92/01/02 12:01 AM		     ;694310460
@@ -153,57 +150,42 @@ Jul 22 10:00:00 UTC 2002	     ;1027332000
 2002-07-22 10:00Z		     ;1027332000
 2002-07-22 10:00 +100		     ;1027328400
 2002-07-22 10:00 +0100		     ;1027328400
-!;
+DATA
 
 require Time::Local;
-my $offset = Time::Local::timegm(0,0,0,1,0,1970);
+my $offset = Time::Local::timegm(0, 0, 0, 1, 0, 1970);
 
-@data = split(/\n/, $data);
+my $loop = 0;
 
-print "1..", scalar(@data),"\n";
-$loop = 1;
-
-printf "# offset = %d\n", $offset;
-
-foreach (@data){
-    my($str,$time_expect) = split ';', $_;
+for my $line (@data) {
+    $loop++;
+    my ($str, $time_expect) = split ';', $line;
     my $time = Date::Parse::str2time($str);
 
-    if($loop < 6) {
-
+    if ($loop < 6) {
         # The first five tests are parsed in the current time zone
         # But the check number is in GMT
-
         my @lt = localtime($time_expect);
         my @gt = gmtime($time_expect);
 
-        $tzsec = ($gt[1] - $lt[1]) * 60 + ($gt[2] - $lt[2]) * 3600;
+        my $tzsec = ($gt[1] - $lt[1]) * 60 + ($gt[2] - $lt[2]) * 3600;
 
-        my($lday,$gday) = ($lt[7],$gt[7]);
-        if($lt[5] > $gt[5]) {
-	    $tzsec -= 24 * 3600;
+        my ($lday, $gday) = ($lt[7], $gt[7]);
+        if ($lt[5] > $gt[5]) {
+            $tzsec -= 24 * 3600;
         }
-        elsif($gt[5] > $lt[5]) {
-	    $tzsec += 24 * 3600;
+        elsif ($gt[5] > $lt[5]) {
+            $tzsec += 24 * 3600;
         }
         else {
-	    $tzsec += ($gt[7] - $lt[7]) * (24 * 3600);
+            $tzsec += ($gt[7] - $lt[7]) * (24 * 3600);
         }
         $time -= $tzsec;
     }
 
     $time_expect += $offset;
 
-    if(defined($time) and $time==$time_expect) {
-	print "ok $loop\n";
-    }
-    else {
-        require Date::Format;
-	print "-"x50,"\nFAIL $loop\n";
-        printf "%s\nDiff:    %d\n", $str, $time - $time_expect;
-        printf "Expect: %10f %s",$time_expect,Date::Format::ctime($time_expect);
-        printf "Got:    %10f %s",$time, Date::Format::ctime($time);
-    }
-    $loop++;
+    is($time, $time_expect, "parse: $str");
 }
 
+done_testing;

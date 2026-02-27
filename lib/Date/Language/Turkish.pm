@@ -14,13 +14,14 @@ package Date::Language::Turkish;
 
 use strict;
 use warnings;
+use utf8;
 use base 'Date::Language';
 
 # VERSION: generated
 # ABSTRACT: Turkish localization for Date::Format
 
-our @DoW = qw(Pazar Pazartesi Salý Çarþamba Perþembe Cuma Cumartesi);
-our @MoY = qw(Ocak Þubat Mart  Nisan Mayýs Haziran Temmuz Aðustos Eylül Ekim Kasým Aralýk);
+our @DoW = qw(Pazar Pazartesi Salı Çarşamba Perşembe Cuma Cumartesi);
+our @MoY = qw(Ocak Şubat Mart  Nisan Mayıs Haziran Temmuz Ağustos Eylül Ekim Kasım Aralık);
 our @DoWs     = map { substr($_,0,3) } @DoW;
 $DoWs[1]  = 'Pzt'; # Since we'll get two 'Paz' s
 $DoWs[-1] = 'Cmt'; # Since we'll get two 'Cum' s
@@ -34,7 +35,7 @@ our %DsufMAP = (
 (map {$_ =>  'nci', $_+10 =>  'nci', $_+20 =>  'nci' } 2       ),
 (map {$_ => 'üncü', $_+10 => 'üncü', $_+20 => 'üncü' } 3,4     ),
 (map {$_ => 'uncu', $_+10 => 'uncu', $_+20 => 'uncu' } 9       ),
-(map {$_ =>  'ncý', $_+10 =>  'ncý', $_+20 =>  'ncý' } 6       ),
+(map {$_ =>  'ncı', $_+10 =>  'ncı', $_+20 =>  'ncı' } 6       ),
 (map {$_ => 'uncu',                                  } 10,30   ),
       20 =>  'nci',
       31 => 'inci',

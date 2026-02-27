@@ -15,7 +15,7 @@ use base 'Date::Language';
 # ABSTRACT: French localization for Date::Format
 
 our @DoW = qw(dimanche lundi mardi mercredi jeudi vendredi samedi);
-our @MoY = qw(janvier février mars avril mai juin 
+our @MoY = qw(janvier février mars avril mai juin
           juillet août septembre octobre novembre décembre);
 our @DoWs = map { substr($_,0,3) } @DoW;
 our @MoYs = map { substr($_,0,3) } @MoY;

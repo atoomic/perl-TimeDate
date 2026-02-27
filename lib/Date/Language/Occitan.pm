@@ -15,8 +15,8 @@ use base 'Date::Language';
 our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
 @DoW = qw(dimenge diluns dimars dimècres dijòus divendres dissabte);
-@MoY = qw(genièr febrièr març abrial mai junh 
-          julhet agost octòbre novembre decembre);
+@MoY = qw(genièr febrièr març abrial mai junh
+          julhet agost setembre octòbre novembre decembre);
 @DoWs = map { substr($_,0,3) } @DoW;
 @MoYs = map { substr($_,0,3) } @MoY;
 $MoYs[6] = 'jul';

@@ -88,7 +88,7 @@ sub {
   # Time: 12:00 or 12:00:00 with optional am/pm
 
   return unless $dtstr =~ /\S/;
-  
+
   if ($dtstr =~ s/\s(\d{4})([-:]?)(\d\d?)\2(\d\d?)(?:[-Tt ](\d\d?)(?:([-:]?)(\d\d?)(?:\6(\d\d?)(?:[.,](\d+))?)?)?)?(?=\D)/ /) {
     ($year,$month,$day,$hh,$mm,$ss,$frac) = ($1,$3-1,$4,$5,$7,$8,$9);
   }
@@ -107,13 +107,13 @@ sub {
     }
 
     # Time: 12 am
-    
+
     elsif ($dtstr =~ s#\s(\d\d?)\s*([ap])\.?m?\.?\s# #o) {
       ($hh,$mm,$ss) = ($1,0,0);
       $merid = $ampm{$2};
     }
   }
-    
+
   if (defined $hh and $hh <= 12 and $dtstr =~ s# ([ap])\.?m?\.?\s# #o) {
     $merid = $ampm{$1};
   }
@@ -121,14 +121,14 @@ sub {
 
   unless (defined $year) {
     # Date: 12-June-96 (using - . or /)
-    
+
     if ($dtstr =~ s#\s(\d\d?)([\-\./])($monpat)(\2(\d\d+))?\s# #o) {
       ($month,$day) = ($month{$3},$1);
       $year = $5 if $5;
     }
-    
+
     # Date: 12-12-96 (using '-', '.' or '/' )
-    
+
     elsif ($dtstr =~ s#\s(\d+)([\-\./])(\d\d?)(\2(\d+))?\s# #o) {
       ($month,$day) = ($1 - 1,$3);
 
@@ -351,7 +351,7 @@ Below is a sample list of dates that are known to be parsable with Date::Parse
 
  1995:01:24T09:08:17.1823213           ISO-8601
  1995-01-24T09:08:17.1823213
- Wed, 16 Jun 94 07:29:35 CST           Comma and day name are optional 
+ Wed, 16 Jun 94 07:29:35 CST           Comma and day name are optional
  Thu, 13 Oct 94 10:13:13 -0700
  Wed, 9 Nov 1994 09:50:32 -0500 (EST)  Text in ()'s will be ignored.
  21 dec 17:05                          Will be parsed in the current time zone
@@ -359,7 +359,7 @@ Below is a sample list of dates that are known to be parsable with Date::Parse
  21/dec 17:05
  21/dec/93 17:05
  1999 10:02:18 "GMT"
- 16 Nov 94 22:28:20 PST 
+ 16 Nov 94 22:28:20 PST
 
 =head1 BUGS
 

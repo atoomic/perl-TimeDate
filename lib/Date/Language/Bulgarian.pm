@@ -53,16 +53,16 @@ Date::Language::Bulgarian - localization for Date::Format
 
 =head1 DESCRIPTION
 
-This is Bulgarian localization for Date::Format. 
+This is Bulgarian localization for Date::Format.
 It is important to note that this module source code is in utf8.
-All strings which it outputs are in utf8, so it is safe to use it 
-currently only with English. You are left alone to try and convert 
-the output when using different Date::Language::* in the same application. 
+All strings which it outputs are in utf8, so it is safe to use it
+currently only with English. You are left alone to try and convert
+the output when using different Date::Language::* in the same application.
 This should be addresed in the future.
 
 =head1 SYNOPSIS
 
-    use strict; 
+    use strict;
     use warnings;
     use Date::Language;
     local $\=$/;

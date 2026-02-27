@@ -29,7 +29,7 @@ C<tz_local_offset()> determines the offset from GMT time in seconds.  It
 only does the calculation once.
 
 C<tz_offset()> determines the offset from GMT in seconds of a specified
-timezone.  
+timezone.
 
 C<tz_name()> determines the name of the timezone based on its offset
 
@@ -75,12 +75,12 @@ sub tz2zone (;$$$)
     if (defined $tzn_cache{$TZ}->[$isdst]) {
         return $tzn_cache{$TZ}->[$isdst];
     }
-      
+
     if ($TZ =~ /^
             ( [^:\d+\-,] {3,} )
             ( [+-] ?
               \d {1,2}
-              ( : \d {1,2} ) {0,2} 
+              ( : \d {1,2} ) {0,2}
             )
             ( [^\d+\-,] {3,} )?
             /x
@@ -151,9 +151,9 @@ my (%dstZone, %zoneOff, %dstZoneOff, %Zone);
 
 CONFIG: {
     my @dstZone = (
-    #   "ndt"  =>   -2*3600-1800,    # Newfoundland Daylight   
+    #   "ndt"  =>   -2*3600-1800,    # Newfoundland Daylight
         "brst" =>   -2*3600,         # Brazil Summer Time (East Daylight)
-        "adt"  =>   -3*3600,     # Atlantic Daylight   
+        "adt"  =>   -3*3600,     # Atlantic Daylight
         "edt"  =>   -4*3600,     # Eastern Daylight
         "cdt"  =>   -5*3600,     # Central Daylight
         "mdt"  =>   -6*3600,     # Mountain Daylight
@@ -161,8 +161,8 @@ CONFIG: {
         "akdt" =>   -8*3600,         # Alaska Daylight
         "ydt"  =>   -8*3600,     # Yukon Daylight
         "hdt"  =>   -9*3600,     # Hawaii Daylight
-        "bst"  =>   +1*3600,     # British Summer   
-        "mest" =>   +2*3600,     # Middle European Summer   
+        "bst"  =>   +1*3600,     # British Summer
+        "mest" =>   +2*3600,     # Middle European Summer
         "metdst" => +2*3600,     # Middle European DST
         "sst"  =>   +2*3600,     # Swedish Summer
         "fst"  =>   +2*3600,     # French Summer
@@ -174,8 +174,8 @@ CONFIG: {
     #   "cadt" =>  +10*3600+1800,    # Central Australian Daylight
         "aedt" =>  +11*3600,     # Eastern Australian Daylight
         "eadt" =>  +11*3600,     # Eastern Australian Daylight
-        "nzd"  =>  +13*3600,     # New Zealand Daylight   
-        "nzdt" =>  +13*3600,     # New Zealand Daylight   
+        "nzd"  =>  +13*3600,     # New Zealand Daylight
+        "nzdt" =>  +13*3600,     # New Zealand Daylight
     );
 
     my @Zone = (

@@ -17,7 +17,7 @@ our @ISA = qw(Date::Language);
 
 our @DoW = qw(Domingo Segunda Terça Quarta Quinta Sexta Sábado);
 our @MoY = qw(Janeiro Fevereiro Março Abril Maio Junho
-	  Julho Agosto Setembro Outubro Novembro Dezembro);
+      Julho Agosto Setembro Outubro Novembro Dezembro);
 our @DoWs = map { substr($_,0,3) } @DoW;
 our @MoYs = map { substr($_,0,3) } @MoY;
 our @AMPM = qw(AM PM);

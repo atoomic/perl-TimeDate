@@ -30,10 +30,10 @@ sub _subs
 {
  my $fn;
  $_[1] =~ s/
-		%(O?[%a-zA-Z])
-	   /
+        %(O?[%a-zA-Z])
+       /
                 ($_[0]->can("format_$1") || sub { $1 })->($_[0]);
-	   /sgeox;
+       /sgeox;
 
  $_[1];
 }
@@ -51,7 +51,7 @@ sub strftime
    $tzname = uc $tzname;
 
    $tzname = sprintf("%+05d",$tzname)
-	unless($tzname =~ /\D/);
+    unless($tzname =~ /\D/);
 
    $epoch = timegm(@{$time}[0..5]);
 
@@ -81,7 +81,7 @@ sub time2str
    $tzname = uc $tzname;
 
    $tzname = sprintf("%+05d",$tzname)
-	unless($tzname =~ /\D/);
+    unless($tzname =~ /\D/);
 
    $time += tz_offset($tzname);
    @$me = gmtime($time);
@@ -186,7 +186,7 @@ sub format_M { sprintf("%02d",$_[0]->[1]) }
 sub format_q { sprintf("%01d",int($_[0]->[4] / 3) + 1) }
 sub format_s { 
    $epoch = timelocal(@{$_[0]}[0..5])
-	unless defined $epoch;
+    unless defined $epoch;
    sprintf("%d",$epoch) 
 }
 sub format_S { sprintf("%02d",$_[0]->[0]) }

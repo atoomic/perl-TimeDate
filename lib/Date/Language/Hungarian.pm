@@ -16,21 +16,23 @@ Date::Language::Hungarian - Magyar format for Date::Format
 
 =head1 SYNOPSIS
 
-	my $lang = Date::Language->new('Hungarian');
-	print $lang->time2str("%a %b %e %T %Y", time);
+    my $lang = Date::Language->new('Hungarian');
+    print $lang->time2str("%a %b %e %T %Y", time);
 
-	@lt = localtime(time);
-	print $lang->time2str($template, time);
-	print $lang->strftime($template, @lt);
+    my @lt = localtime(time);
+    my $template = "%a %b %e %T %Y";
+    print $lang->time2str($template, time);
+    print $lang->strftime($template, @lt);
 
-	print $lang->time2str($template, time, $zone);
-	print $lang->strftime($template, @lt, $zone);
+    my $zone = "EST";
+    print $lang->time2str($template, time, $zone);
+    print $lang->strftime($template, @lt, $zone);
 
-	print $lang->ctime(time);
-	print $lang->asctime(@lt);
+    print $lang->ctime(time);
+    print $lang->asctime(@lt);
 
-	print $lang->ctime(time, $zone);
-	print $lang->asctime(@lt, $zone);
+    print $lang->ctime(time, $zone);
+    print $lang->asctime(@lt, $zone);
 
 See L<Date::Format>.
 
@@ -56,7 +58,7 @@ use base 'Date::Language';
 
 our @DoW = qw(Vasárnap Hétfõ Kedd Szerda Csütörtök Péntek Szombat);
 our @MoY = qw(Január Február Március Április Május Június
-	  Július Augusztus Szeptember Október November December);
+      Július Augusztus Szeptember Október November December);
 our @DoWs = map { substr($_,0,3) } @DoW;
 our @MoYs = map { substr($_,0,3) } @MoY;
 our @AMPM = qw(DE. DU.);

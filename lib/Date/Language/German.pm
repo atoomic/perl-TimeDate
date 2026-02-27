@@ -16,7 +16,7 @@ use base 'Date::Language';
 # ABSTRACT: German localization for Date::Format
 
 our @MoY  = qw(Januar Februar März April Mai Juni
-	   Juli August September Oktober November Dezember);
+       Juli August September Oktober November Dezember);
 our @MoYs = qw(Jan Feb Mär Apr Mai Jun Jul Aug Sep Okt Nov Dez);
 our @DoW  = qw(Sonntag Montag Dienstag Mittwoch Donnerstag Freitag Samstag);
 our @DoWs = qw(Son Mon Die Mit Don Fre Sam);

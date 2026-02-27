@@ -16,7 +16,7 @@ use base 'Date::Language';
 # ABSTRACT: Czech localization for Date::Format
 
 our @MoY = qw(leden únor bøezen duben kvìten èerven èervenec srpen záøí
-	      øíjen listopad prosinec);
+          øíjen listopad prosinec);
 our @MoYs = qw(led únor bøe dub kvì èvn èec srp záøí øíj lis pro);
 our @MoY2 = @MoY;
 for (@MoY2)

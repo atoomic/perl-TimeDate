@@ -16,7 +16,7 @@ use Date::Language::English ();
 # ABSTRACT: Norwegian localization for Date::Format
 
 our @MoY  = qw(Januar Februar Mars April Mai Juni
-	   Juli August September Oktober November Desember);
+       Juli August September Oktober November Desember);
 our @MoYs = qw(Jan Feb Mar Apr Mai Jun Jul Aug Sep Okt Nov Des);
 our @DoW  = qw(Søndag Mandag Tirsdag Onsdag Torsdag Fredag Lørdag Søndag);
 our @DoWs = qw(Søn Man Tir Ons Tor Fre Lør Søn);

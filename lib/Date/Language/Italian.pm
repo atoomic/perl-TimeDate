@@ -15,7 +15,7 @@ use base 'Date::Language';
 our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
 @MoY  = qw(Gennaio Febbraio Marzo Aprile Maggio Giugno
-	   Luglio Agosto Settembre Ottobre Novembre Dicembre);
+       Luglio Agosto Settembre Ottobre Novembre Dicembre);
 @MoYs = qw(Gen Feb Mar Apr Mag Giu Lug Ago Set Ott Nov Dic);
 @DoW  = qw(Domenica Lunedi Martedi Mercoledi Giovedi Venerdi Sabato);
 @DoWs = qw(Dom Lun Mar Mer Gio Ven Sab);

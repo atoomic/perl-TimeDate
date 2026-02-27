@@ -1,30 +1,56 @@
 ##
-## English tables
+## Chinese GB2312 tables (GB2312 byte encoding)
 ##
 
 package Date::Language::Chinese_GB;
 
-use Date::Language ();
-
 use strict;
 use warnings;
-use utf8;
+
+use Date::Language ();
+
+use base 'Date::Language';
 
 # VERSION: generated
-# ABSTRACT: Chinese_GB localization for Date::Format
+# ABSTRACT: Chinese localization for Date::Format (GB2312)
 
-our @ISA = qw(Date::Language);
+our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
-our @DoW = qw(ÐÇÆÚÈÕ ÐÇÆÚÒ» ÐÇÆÚ¶þ ÐÇÆÚÈý ÐÇÆÚËÄ ÐÇÆÚÎå ÐÇÆÚÁù);
-our @MoY = qw(Ò»ÔÂ ¶þÔÂ ÈýÔÂ ËÄÔÂ ÎåÔÂ ÁùÔÂ
-      ÆßÔÂ °ËÔÂ ¾ÅÔÂ Ê®ÔÂ Ê®Ò»ÔÂ Ê®¶þÔÂ);
-our @DoWs = map { $_ } @DoW;
-our @MoYs = map { $_ } @MoY;
-our @AMPM = qw(ÉÏÎç ÏÂÎç);
+@DoW = (
+    "\xd0\xc7\xc6\xda\xc8\xd5",  # 星期日
+    "\xd0\xc7\xc6\xda\xd2\xbb",  # 星期一
+    "\xd0\xc7\xc6\xda\xb6\xfe",  # 星期二
+    "\xd0\xc7\xc6\xda\xc8\xfd",  # 星期三
+    "\xd0\xc7\xc6\xda\xcb\xc4",  # 星期四
+    "\xd0\xc7\xc6\xda\xce\xe5",  # 星期五
+    "\xd0\xc7\xc6\xda\xc1\xf9",  # 星期六
+);
 
-our @Dsuf = (qw(ÈÕ ÈÕ ÈÕ ÈÕ ÈÕ ÈÕ ÈÕ ÈÕ ÈÕ ÈÕ)) x 3;
+@MoY = (
+    "\xd2\xbb\xd4\xc2",          # 一月
+    "\xb6\xfe\xd4\xc2",          # 二月
+    "\xc8\xfd\xd4\xc2",          # 三月
+    "\xcb\xc4\xd4\xc2",          # 四月
+    "\xce\xe5\xd4\xc2",          # 五月
+    "\xc1\xf9\xd4\xc2",          # 六月
+    "\xc6\xdf\xd4\xc2",          # 七月
+    "\xb0\xcb\xd4\xc2",          # 八月
+    "\xbe\xc5\xd4\xc2",          # 九月
+    "\xca\xae\xd4\xc2",          # 十月
+    "\xca\xae\xd2\xbb\xd4\xc2",  # 十一月
+    "\xca\xae\xb6\xfe\xd4\xc2",  # 十二月
+);
 
-our ( %MoY, %DoW );
+@DoWs = map { $_ } @DoW;
+@MoYs = map { $_ } @MoY;
+
+@AMPM = (
+    "\xc9\xcf\xce\xe7",  # 上午
+    "\xcf\xc2\xce\xe7",  # 下午
+);
+
+@Dsuf = ("\xc8\xd5") x 31;  # 日
+
 @MoY{@MoY}  = (0 .. scalar(@MoY));
 @MoY{@MoYs} = (0 .. scalar(@MoYs));
 @DoW{@DoW}  = (0 .. scalar(@DoW));
@@ -39,6 +65,6 @@ sub format_B { $MoY[$_[0]->[4]] }
 sub format_h { $MoYs[$_[0]->[4]] }
 sub format_p { $_[0]->[2] >= 12 ?  $AMPM[1] : $AMPM[0] }
 
-sub format_o { sprintf("%2d%s",$_[0]->[3],"ÈÕ") }
+sub format_o { sprintf("%2d%s",$_[0]->[3],"\xc8\xd5") }  # 日
 
 1;

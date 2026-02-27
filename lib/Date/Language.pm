@@ -12,6 +12,16 @@ require Date::Format;
 
 use base qw(Date::Format::Generic);
 
+sub _build_lookups
+{
+ my $pkg = caller;
+ no strict 'refs';
+ @{"${pkg}::MoY"}{@{"${pkg}::MoY"}}  = (0 .. scalar(@{"${pkg}::MoY"}));
+ @{"${pkg}::MoY"}{@{"${pkg}::MoYs"}} = (0 .. scalar(@{"${pkg}::MoYs"}));
+ @{"${pkg}::DoW"}{@{"${pkg}::DoW"}}  = (0 .. scalar(@{"${pkg}::DoW"}));
+ @{"${pkg}::DoW"}{@{"${pkg}::DoWs"}} = (0 .. scalar(@{"${pkg}::DoWs"}));
+}
+
 sub new
 {
  my $self = shift;

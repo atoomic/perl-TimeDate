@@ -13,7 +13,7 @@ use Date::Language ();
 # VERSION: generated
 # ABSTRACT: Brazilian localization for Date::Format
 
-our @ISA = qw(Date::Language);
+use base 'Date::Language';
 
 our @DoW = qw(Domingo Segunda Terça Quarta Quinta Sexta Sábado);
 our @MoY = qw(Janeiro Fevereiro Março Abril Maio Junho
@@ -25,10 +25,7 @@ our @AMPM = qw(AM PM);
 our @Dsuf = (qw(mo ro do ro to to to mo vo no)) x 3;
 
 our ( %MoY, %DoW );
-@MoY{@MoY}  = (0 .. scalar(@MoY));
-@MoY{@MoYs} = (0 .. scalar(@MoYs));
-@DoW{@DoW}  = (0 .. scalar(@DoW));
-@DoW{@DoWs} = (0 .. scalar(@DoWs));
+Date::Language::_build_lookups();
 
 # Formatting routines
 

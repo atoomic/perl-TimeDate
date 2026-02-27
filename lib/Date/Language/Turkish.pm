@@ -44,10 +44,7 @@ our %DsufMAP = (
 our @Dsuf       = map{ $DsufMAP{$_} } sort {$a <=> $b} keys %DsufMAP;
 
 our ( %MoY, %DoW );
-@MoY{@MoY}  = (0 .. scalar(@MoY));
-@MoY{@MoYs} = (0 .. scalar(@MoYs));
-@DoW{@DoW}  = (0 .. scalar(@DoW));
-@DoW{@DoWs} = (0 .. scalar(@DoWs));
+Date::Language::_build_lookups();
 
 # Formatting routines
 

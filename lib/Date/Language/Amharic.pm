@@ -8,10 +8,11 @@ use strict;
 use warnings;
 
 use Date::Language ();
+use base 'Date::Language';
 
 # VERSION: generated
 # ABSTRACT: Amharic localization for Date::Format
-our @ISA = qw(Date::Language);
+
 our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
 if ( $] >= 5.006 ) {
@@ -75,10 +76,7 @@ else {
 @Dsuf = ("ኛ" x 31);
 }
 
-@MoY{@MoY}  = (0 .. scalar(@MoY));
-@MoY{@MoYs} = (0 .. scalar(@MoYs));
-@DoW{@DoW}  = (0 .. scalar(@DoW));
-@DoW{@DoWs} = (0 .. scalar(@DoWs));
+Date::Language::_build_lookups();
 
 # Formatting routines
 

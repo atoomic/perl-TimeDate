@@ -16,7 +16,7 @@ our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
 @DoW = qw(Sunday Monday Tuesday Wednesday Thursday Friday Saturday);
 @MoY = qw(January February March April May June
-	  July August September October November December);
+      July August September October November December);
 @DoWs = map { substr($_,0,3) } @DoW;
 @MoYs = map { substr($_,0,3) } @MoY;
 @AMPM = qw(AM PM);

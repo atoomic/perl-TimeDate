@@ -18,34 +18,34 @@ our @EXPORT = qw(&strtotime &str2time &strptime);
 # ABSTRACT: Parse date strings into time values
 
 my %month = (
-	january		=> 0,
-	february	=> 1,
-	march		=> 2,
-	april		=> 3,
-	may		=> 4,
-	june		=> 5,
-	july		=> 6,
-	august		=> 7,
-	september	=> 8,
-	sept		=> 8,
-	october		=> 9,
-	november	=> 10,
-	december	=> 11,
-	);
+    january   => 0,
+    february  => 1,
+    march     => 2,
+    april     => 3,
+    may       => 4,
+    june      => 5,
+    july      => 6,
+    august    => 7,
+    september => 8,
+    sept      => 8,
+    october   => 9,
+    november  => 10,
+    december  => 11,
+    );
 
 my %day = (
-	sunday		=> 0,
-	monday		=> 1,
-	tuesday		=> 2,
-	tues		=> 2,
-	wednesday	=> 3,
-	wednes		=> 3,
-	thursday	=> 4,
-	thur		=> 4,
-	thurs		=> 4,
-	friday		=> 5,
-	saturday	=> 6,
-	);
+    sunday    => 0,
+    monday    => 1,
+    tuesday   => 2,
+    tues      => 2,
+    wednesday => 3,
+    wednes    => 3,
+    thursday  => 4,
+    thur      => 4,
+    thurs     => 4,
+    friday    => 5,
+    saturday  => 6,
+    );
 
 my @suf = (qw(th st nd rd th th th th th th)) x 3;
 @suf[11,12,13] = qw(th th th);
@@ -62,9 +62,9 @@ my $strptime = <<'ESQ';
  my $sufpat = join("|", reverse sort map { lc $_ } @$suf_ref);
 
  my %ampm = (
-	'a' => 0,  # AM
-	'p' => 12, # PM
-	);
+    'a' => 0,  # AM
+    'p' => 12, # PM
+    );
 
  my($AM, $PM) = (0,12);
 
@@ -133,10 +133,10 @@ sub {
       ($month,$day) = ($1 - 1,$3);
 
       if ($5) {
-	$year = $5;
-	# Possible match for 1995-01-24 (short mainframe date format);
-	($year,$month,$day) = ($1, $3 - 1, $5) if $month > 12;
-	return if length($year) > 2 and $year < 1901;
+    $year = $5;
+    # Possible match for 1995-01-24 (short mainframe date format);
+    ($year,$month,$day) = ($1, $3 - 1, $5) if $month > 12;
+    return if length($year) > 2 and $year < 1901;
       }
     }
     elsif ($dtstr =~ s#\s(\d+)\s*($sufpat)?\s*($monpat)# #o) {
@@ -240,7 +240,7 @@ sub str2time
  my @t = strptime(@_);
 
  return undef
-	unless @t;
+    unless @t;
 
  my($ss,$mm,$hh,$day,$month,$year,$zone, $century) = @t;
  my @lt  = localtime(time);
@@ -253,20 +253,20 @@ sub str2time
  $ss = int $ss;
 
  $month = $lt[4]
-	unless(defined $month);
+    unless(defined $month);
 
  $day  = $lt[3]
-	unless(defined $day);
+    unless(defined $day);
 
  $year = ($month > $lt[4]) ? ($lt[5] - 1) : $lt[5]
-	unless(defined $year);
+    unless(defined $year);
 
  # we were given a 4 digit year, so let's keep using those
  $year += 1900 if defined $century;
 
  return undef
-	unless($month <= 11 && $day >= 1 && $day <= 31
-		&& $hh <= 23 && $mm <= 59 && $ss <= 59);
+    unless($month <= 11 && $day >= 1 && $day <= 31
+        && $hh <= 23 && $mm <= 59 && $ss <= 59);
 
  my $result;
 
@@ -279,7 +279,7 @@ sub str2time
      if !defined $result
         or $result == -1
            && join("",$ss,$mm,$hh,$day,$month,$year)
-     	        ne "595923311169";
+                ne "595923311169";
    $result -= $zone;
  }
  else {
@@ -291,7 +291,7 @@ sub str2time
      if !defined $result
         or $result == -1
            && join("",$ss,$mm,$hh,$day,$month,$year)
-     	        ne join("",(localtime(-1))[0..5]);
+                ne join("",(localtime(-1))[0..5]);
  }
 
  return $result + $frac;
@@ -308,11 +308,12 @@ Date::Parse - Parse date strings into time values
 
 =head1 SYNOPSIS
 
-	use Date::Parse;
-	
-	$time = str2time($date);
-	
-	($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($date);
+    use Date::Parse;
+
+    my $date = "Wed, 16 Jun 94 07:29:35 CST";
+    my $time = str2time($date);
+
+    my ($ss,$mm,$hh,$day,$month,$year,$zone) = strptime($date);
 
 =head1 DESCRIPTION
 
@@ -341,8 +342,8 @@ failure.
 Date::Parse is capable of parsing dates in several languages, these include
 English, French, German and Italian.
 
-	$lang = Date::Language->new('German');
-	$lang->str2time("25 Jun 1996 21:09:55 +0100");
+    $lang = Date::Language->new('German');
+    $lang->str2time("25 Jun 1996 21:09:55 +0100");
 
 =head1 EXAMPLE DATES
 

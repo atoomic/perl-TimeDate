@@ -17,7 +17,7 @@ use Date::Language::English ();
 # ABSTRACT: Icelandic localization for Date::Format
 
 our @MoY  = qw(Janúar Febrúar Mars Apríl Maí Júni
-	   Júli Ágúst September Október Nóvember Desember);
+       Júli Ágúst September Október Nóvember Desember);
 our @MoYs = qw(Jan Feb Mar Apr Maí Jún Júl Ágú Sep Okt Nóv Des);
 our @DoW  = qw(Sunnudagur Mánudagur Þriðjudagur Miðvikudagur Fimmtudagur Föstudagur Laugardagur Sunnudagur);
 our @DoWs = qw(Sun Mán Þri Mið Fim Fös Lau Sun);

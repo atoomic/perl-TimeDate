@@ -16,7 +16,7 @@ use base 'Date::Language';
 
 our @DoW = qw(domingo lunes martes miércoles jueves viernes sábado);
 our @MoY = qw(enero febrero marzo abril mayo junio
-	  julio agosto septiembre octubre noviembre diciembre);
+      julio agosto septiembre octubre noviembre diciembre);
 our @DoWs = map { substr($_,0,3) } @DoW;
 our @MoYs = map { substr($_,0,3) } @MoY;
 our @AMPM = qw(AM PM);

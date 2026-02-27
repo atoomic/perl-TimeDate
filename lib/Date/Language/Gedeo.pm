@@ -39,7 +39,6 @@ $DoWs[1] = "Sno";
 @Dsuf[11,12,13] = qw(th th th);
 @Dsuf[30,31] = qw(th st);
 
-our ( %MoY, %DoW );
 @MoY{@MoY}  = (0 .. scalar(@MoY));
 @MoY{@MoYs} = (0 .. scalar(@MoYs));
 @DoW{@DoW}  = (0 .. scalar(@DoW));

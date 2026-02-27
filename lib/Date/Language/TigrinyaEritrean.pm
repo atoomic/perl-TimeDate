@@ -4,9 +4,11 @@
 
 package Date::Language::TigrinyaEritrean;
 
-use Date::Language ();
-our @ISA = qw(Date::Language);
-our $VERSION = "1.00";
+use base 'Date::Language';
+
+# VERSION: generated
+# ABSTRACT: TigrinyaEritrean localization for Date::Format
+
 our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
 if ( $] >= 5.006 ) {

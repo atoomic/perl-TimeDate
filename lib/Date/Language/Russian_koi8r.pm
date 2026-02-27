@@ -4,23 +4,25 @@
 
 package Date::Language::Russian_koi8r;
 
-use Date::Language ();
-our @ISA = qw(Date::Language);
-our $VERSION = "1.01";
-our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
+use strict;
+use warnings;
+use utf8;
+use base 'Date::Language';
 
-@DoW = qw(Воскресенье Понедельник Вторник Среда Четверг Пятница Суббота);
-@MoY = qw(Январь Февраль Март Апрель Май Июнь
-      Июль Август Сентябрь Октябрь Ноябрь Декабрь);
-@DoWs = qw(Вск Пнд Втр Срд Чтв Птн Сбт);
-#@DoWs = map { substr($_,0,3) } @DoW;
-@MoYs = map { substr($_,0,3) } @MoY;
-@AMPM = qw(AM PM);
+# VERSION: generated
+# ABSTRACT: Russian_koi8r localization for Date::Format
 
-@Dsuf = ('e') x 31;
-#@Dsuf[11,12,13] = qw(е е е);
-#@Dsuf[30,31] = qw(е е);
+our @DoW = qw(ц╥ц▐ц⌠ц▀ц▓ц┘ц⌠ц┘ц▌ц≤ц┘ ц╟ц▐ц▌ц┘ц└ц┘ц▄ц≤ц▌ц┴ц▀ ц╥ц■ц▐ц▓ц▌ц┴ц▀ цЁц▓ц┘ц└ц│ ц╬ц┘ц■ц≈ц┘ц▓ц┤ ц╟ц▒ц■ц▌ц┴ц┐ц│ цЁц∙ц┌ц┌ц▐ц■ц│);
+our @MoY = qw(ц╠ц▌ц≈ц│ц▓ц≤ ц╕ц┘ц≈ц▓ц│ц▄ц≤ ц╜ц│ц▓ц■ ц║ц░ц▓ц┘ц▄ц≤ ц╜ц│ц┼ ц╘ц─ц▌ц≤
+      ц╘ц─ц▄ц≤ ц║ц≈ц┤ц∙ц⌠ц■ цЁц┘ц▌ц■ц▒ц┌ц▓ц≤ ц╞ц▀ц■ц▒ц┌ц▓ц≤ ц╝ц▐ц▒ц┌ц▓ц≤ ц╓ц┘ц▀ц│ц┌ц▓ц≤);
+our @DoWs = qw(ц╥ц⌠ц▀ ц╟ц▌ц└ ц╥ц■ц▓ цЁц▓ц└ ц╬ц■ц≈ ц╟ц■ц▌ цЁц┌ц■);
 
+our @MoYs = map { substr($_,0,3) } @MoY;
+our @AMPM = qw(AM PM);
+
+our @Dsuf = ('e') x 31;
+
+our ( %MoY, %DoW );
 @MoY{@MoY}  = (0 .. scalar(@MoY));
 @MoY{@MoYs} = (0 .. scalar(@MoYs));
 @DoW{@DoW}  = (0 .. scalar(@DoW));

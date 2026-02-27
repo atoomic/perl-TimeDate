@@ -6,4 +6,5 @@ TimeDate-*
 _dev
 MYMETA.json
 MYMETA.yml
+.build
 .DS_Store

@@ -5,8 +5,11 @@
 package Date::Language::Italian;
 
 use Date::Language ();
-our @ISA = qw(Date::Language);
-our $VERSION = "1.01";
+use base 'Date::Language';
+
+# VERSION: generated
+# ABSTRACT: Italian localization for Date::Format
+
 our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
 @MoY  = qw(Gennaio Febbraio Marzo Aprile Maggio Giugno

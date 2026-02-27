@@ -4,20 +4,26 @@
 
 package Date::Language::Spanish;
 
+use strict;
+use warnings;
+use utf8;
 use Date::Language ();
-our @ISA = qw(Date::Language);
-our $VERSION = "1.00";
-our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
-@DoW = qw(domingo lunes martes miÈrcoles jueves viernes s·bado);
-@MoY = qw(enero febrero marzo abril mayo junio
+use base 'Date::Language';
+
+# VERSION: generated
+# ABSTRACT: Spanish localization for Date::Format
+
+our @DoW = qw(domingo lunes martes mi√©rcoles jueves viernes s√°bado);
+our @MoY = qw(enero febrero marzo abril mayo junio
 	  julio agosto septiembre octubre noviembre diciembre);
-@DoWs = map { substr($_,0,3) } @DoW;
-@MoYs = map { substr($_,0,3) } @MoY;
-@AMPM = qw(AM PM);
+our @DoWs = map { substr($_,0,3) } @DoW;
+our @MoYs = map { substr($_,0,3) } @MoY;
+our @AMPM = qw(AM PM);
 
-@Dsuf = ((qw(ro do ro to to to mo vo no mo)) x 3, 'ro');
+our @Dsuf = ((qw(ro do ro to to to mo vo no mo)) x 3, 'ro');
 
+our ( %MoY, %DoW );
 @MoY{@MoY}  = (0 .. scalar(@MoY));
 @MoY{@MoYs} = (0 .. scalar(@MoYs));
 @DoW{@DoW}  = (0 .. scalar(@DoW));

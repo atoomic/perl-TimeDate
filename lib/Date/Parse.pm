@@ -14,7 +14,8 @@ use Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw(&strtotime &str2time &strptime);
 
-our $VERSION = "2.33";
+# VERSION: generated
+# ABSTRACT: Parse date strings into time values
 
 my %month = (
 	january		=> 0,

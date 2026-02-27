@@ -4,20 +4,27 @@
 
 package Date::Language::Brazilian;
 
+use strict;
+use warnings;
+use utf8;
+
 use Date::Language ();
+
+# VERSION: generated
+# ABSTRACT: Brazilian localization for Date::Format
+
 our @ISA = qw(Date::Language);
-our $VERSION = "1.01";
-our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
-@DoW = qw(Domingo Segunda Terça Quarta Quinta Sexta Sábado);
-@MoY = qw(Janeiro Fevereiro Março Abril Maio Junho
+our @DoW = qw(Domingo Segunda TerÃ§a Quarta Quinta Sexta SÃ¡bado);
+our @MoY = qw(Janeiro Fevereiro MarÃ§o Abril Maio Junho
 	  Julho Agosto Setembro Outubro Novembro Dezembro);
-@DoWs = map { substr($_,0,3) } @DoW;
-@MoYs = map { substr($_,0,3) } @MoY;
-@AMPM = qw(AM PM);
+our @DoWs = map { substr($_,0,3) } @DoW;
+our @MoYs = map { substr($_,0,3) } @MoY;
+our @AMPM = qw(AM PM);
 
-@Dsuf = (qw(mo ro do ro to to to mo vo no)) x 3;
+our @Dsuf = (qw(mo ro do ro to to to mo vo no)) x 3;
 
+our ( %MoY, %DoW );
 @MoY{@MoY}  = (0 .. scalar(@MoY));
 @MoY{@MoYs} = (0 .. scalar(@MoYs));
 @DoW{@DoW}  = (0 .. scalar(@DoW));

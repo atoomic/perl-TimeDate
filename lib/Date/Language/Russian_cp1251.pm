@@ -4,23 +4,23 @@
 
 package Date::Language::Russian_cp1251;
 
+use base 'Date::Language';
 use Date::Language ();
-our @ISA = qw(Date::Language);
-our $VERSION = "1.01";
-our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
-@DoW = qw(Воскресенье Понедельник Вторник Среда Четверг Пятница Суббота);
-@MoY = qw(Январь Февраль Март Апрель Май Июнь
-      Июль Август Сентябрь Октябрь Ноябрь Декабрь);
-@DoWs = qw(Вск Пнд Втр Срд Чтв Птн Сбт);
-#@DoWs = map { substr($_,0,3) } @DoW;
-@MoYs = map { substr($_,0,3) } @MoY;
-@AMPM = qw(AM PM);
+# VERSION: generated
+# ABSTRACT: Russian_cp1251 localization for Date::Format
 
-@Dsuf = ('e') x 31;
-#@Dsuf[11,12,13] = qw(е е е);
-#@Dsuf[30,31] = qw(е е);
+our @DoW = qw(Г‚Г®Г±ГЄГ°ГҐГ±ГҐГ­ГјГҐ ГЏГ®Г­ГҐГ¤ГҐГ«ГјГ­ГЁГЄ Г‚ГІГ®Г°Г­ГЁГЄ Г‘Г°ГҐГ¤Г  Г—ГҐГІГўГҐГ°ГЈ ГЏГїГІГ­ГЁГ¶Г  Г‘ГіГЎГЎГ®ГІГ );
+our @MoY = qw(ГџГ­ГўГ Г°Гј Г”ГҐГўГ°Г Г«Гј ГЊГ Г°ГІ ГЂГЇГ°ГҐГ«Гј ГЊГ Г© Г€ГѕГ­Гј
+      Г€ГѕГ«Гј ГЂГўГЈГіГ±ГІ Г‘ГҐГ­ГІГїГЎГ°Гј ГЋГЄГІГїГЎГ°Гј ГЌГ®ГїГЎГ°Гј Г„ГҐГЄГ ГЎГ°Гј);
+our @DoWs = qw(Г‚Г±ГЄ ГЏГ­Г¤ Г‚ГІГ° Г‘Г°Г¤ Г—ГІГў ГЏГІГ­ Г‘ГЎГІ);
 
+our @MoYs = map { substr($_,0,3) } @MoY;
+our @AMPM = qw(AM PM);
+
+our @Dsuf = ('e') x 31;
+
+our ( %MoY, %DoW );
 @MoY{@MoY}  = (0 .. scalar(@MoY));
 @MoY{@MoYs} = (0 .. scalar(@MoYs));
 @DoW{@DoW}  = (0 .. scalar(@DoW));

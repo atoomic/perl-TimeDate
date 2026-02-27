@@ -6,23 +6,23 @@
 
 package Date::Language::Swedish;
 
-use Date::Language ();
-our @ISA = qw(Date::Language);
-our $VERSION = "1.01";
-our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
+use base 'Date::Language';
+use Date::Language::English ();
 
-@MoY  = qw(januari februari mars april maj juni juli augusti september oktober november december);
-@MoYs = map { substr($_,0,3) } @MoY;
-@DoW  = map($_ . "dagen", qw(sön mån tis ons tors fre lör));
-@DoWs = map { substr($_,0,2) } @DoW;
+# VERSION: generated
+# ABSTRACT: Swedish localization for Date::Format
+
+our @MoY  = qw(januari februari mars april maj juni juli augusti september oktober november december);
+our @MoYs = map { substr($_,0,3) } @MoY;
+our @DoW  = map($_ . "dagen", qw(sÃ¶n mÃ¥n tis ons tors fre lÃ¶r));
+our @DoWs = map { substr($_,0,2) } @DoW;
 
 # the ordinals are not typically used in modern times
-@Dsuf = ('a' x 2, 'e' x 29);
+our @Dsuf = ('a' x 2, 'e' x 29);
 
-use Date::Language::English ();
-@AMPM =   @{Date::Language::English::AMPM};
+our @AMPM =   @{Date::Language::English::AMPM};
 
-
+our ( %MoY, %DoW );
 @MoY{@MoY}  = (0 .. scalar(@MoY));
 @MoY{@MoYs} = (0 .. scalar(@MoYs));
 @DoW{@DoW}  = (0 .. scalar(@DoW));

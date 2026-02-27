@@ -5,19 +5,26 @@
 package Date::Language::Chinese_GB;
 
 use Date::Language ();
+
+use strict;
+use warnings;
+use utf8;
+
+# VERSION: generated
+# ABSTRACT: Chinese_GB localization for Date::Format
+
 our @ISA = qw(Date::Language);
-our $VERSION = "1.01";
-our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
-@DoW = qw(星期日 星期一 星期二 星期三 星期四 星期五 星期六);
-@MoY = qw(一月 二月 三月 四月 五月 六月
-	  七月 八月 九月 十月 十一月 十二月);
-@DoWs = map { $_ } @DoW;
-@MoYs = map { $_ } @MoY;
-@AMPM = qw(上午 下午);
+our @DoW = qw(脨脟脝脷脠脮 脨脟脝脷脪禄 脨脟脝脷露镁 脨脟脝脷脠媒 脨脟脝脷脣脛 脨脟脝脷脦氓 脨脟脝脷脕霉);
+our @MoY = qw(脪禄脭脗 露镁脭脗 脠媒脭脗 脣脛脭脗 脦氓脭脗 脕霉脭脗
+	  脝脽脭脗 掳脣脭脗 戮脜脭脗 脢庐脭脗 脢庐脪禄脭脗 脢庐露镁脭脗);
+our @DoWs = map { $_ } @DoW;
+our @MoYs = map { $_ } @MoY;
+our @AMPM = qw(脡脧脦莽 脧脗脦莽);
 
-@Dsuf = (qw(日 日 日 日 日 日 日 日 日 日)) x 3;
+our @Dsuf = (qw(脠脮 脠脮 脠脮 脠脮 脠脮 脠脮 脠脮 脠脮 脠脮 脠脮)) x 3;
 
+our ( %MoY, %DoW );
 @MoY{@MoY}  = (0 .. scalar(@MoY));
 @MoY{@MoYs} = (0 .. scalar(@MoYs));
 @DoW{@DoW}  = (0 .. scalar(@DoW));
@@ -32,5 +39,6 @@ sub format_B { $MoY[$_[0]->[4]] }
 sub format_h { $MoYs[$_[0]->[4]] }
 sub format_p { $_[0]->[2] >= 12 ?  $AMPM[1] : $AMPM[0] }
 
-sub format_o { sprintf("%2d%s",$_[0]->[3],"日") }
+sub format_o { sprintf("%2d%s",$_[0]->[3],"脠脮") }
+
 1;

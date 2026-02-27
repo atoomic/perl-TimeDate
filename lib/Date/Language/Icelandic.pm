@@ -4,21 +4,28 @@
 
 package Date::Language::Icelandic;
 
+use strict;
+use warnings;
+use utf8;
 use Date::Language ();
-our @ISA = qw(Date::Language);
-our $VERSION = "1.01";
-our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
-@MoY  = qw(Janúar Febrúar Mars Apríl Maí Júni
-	   Júli Ágúst September Október Nóvember Desember);
-@MoYs = qw(Jan Feb Mar Apr Maí Jún Júl Ágú Sep Okt Nóv Des);
-@DoW  = qw(Sunnudagur Mánudagur Şriğjudagur Miğvikudagur Fimmtudagur Föstudagur Laugardagur Sunnudagur);
-@DoWs = qw(Sun Mán Şri Miğ Fim Fös Lau Sun);
+use base 'Date::Language';
 
 use Date::Language::English ();
-@AMPM =   @{Date::Language::English::AMPM};
-@Dsuf =   @{Date::Language::English::Dsuf};
 
+# VERSION: generated
+# ABSTRACT: Icelandic localization for Date::Format
+
+our @MoY  = qw(JanÃºar FebrÃºar Mars AprÃ­l MaÃ­ JÃºni
+	   JÃºli ÃgÃºst September OktÃ³ber NÃ³vember Desember);
+our @MoYs = qw(Jan Feb Mar Apr MaÃ­ JÃºn JÃºl ÃgÃº Sep Okt NÃ³v Des);
+our @DoW  = qw(Sunnudagur MÃ¡nudagur ÃriÃ°judagur MiÃ°vikudagur Fimmtudagur FÃ¶studagur Laugardagur Sunnudagur);
+our @DoWs = qw(Sun MÃ¡n Ãri MiÃ° Fim FÃ¶s Lau Sun);
+
+our @AMPM =   @{Date::Language::English::AMPM};
+our @Dsuf =   @{Date::Language::English::Dsuf};
+
+our ( %MoY, %DoW );
 @MoY{@MoY}  = (0 .. scalar(@MoY));
 @MoY{@MoYs} = (0 .. scalar(@MoYs));
 @DoW{@DoW}  = (0 .. scalar(@DoW));

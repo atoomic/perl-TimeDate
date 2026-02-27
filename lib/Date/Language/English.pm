@@ -4,15 +4,14 @@
 
 package Date::Language::English;
 
+use strict;
+use warnings;
+use Date::Language ();
 use base 'Date::Language';
 
 # VERSION: generated
 # ABSTRACT: English localization for Date::Format
 
-use Date::Language ();
-
-our @ISA = qw(Date::Language);
-our $VERSION = "1.01";
 our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
 @DoW = qw(Sunday Monday Tuesday Wednesday Thursday Friday Saturday);

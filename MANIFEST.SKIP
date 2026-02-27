@@ -1,6 +1,7 @@
 MANIFEST.SKIP
 ^\.git
 .gitignore
+.last-review-sha
 blib\b
 cover_db
 ^Makefile$

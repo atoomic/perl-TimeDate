@@ -4,12 +4,15 @@
 
 package Date::Format::Generic;
 
-use vars qw($epoch $tzname);
+use strict;
+use warnings;
+
+our ($epoch, $tzname);
 use Time::Zone;
 use Time::Local;
 
 # VERSION: generated
-# ABSTRACT: Date formating subroutines
+# ABSTRACT: Date formatting subroutines
 
 sub ctime
 {

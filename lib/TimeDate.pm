@@ -1,7 +1,7 @@
 package TimeDate;
 
 # VERSION: generated
-# ABSTRACT: Date and time formating subroutines
+# ABSTRACT: Date and time formatting subroutines
 
 =pod
 

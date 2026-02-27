@@ -45,9 +45,10 @@ require Exporter;
 use Carp;
 use strict;
 
+# VERSION: generated
+# ABSTRACT: miscellaneous timezone manipulations routines
 our @ISA = qw(Exporter);
 our @EXPORT = qw(tz2zone tz_local_offset tz_offset tz_name);
-our $VERSION = "2.24";
 
 # Parts stolen from code by Paul Foley <paul@ascent.com>
 

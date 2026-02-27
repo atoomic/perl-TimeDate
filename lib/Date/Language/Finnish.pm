@@ -6,27 +6,32 @@
 
 package Date::Language::Finnish;
 
+use strict;
+use warnings;
+use utf8;
+
+use base 'Date::Language';
+
+# VERSION: generated
+# ABSTRACT: Finnish localization for Date::Format
 use Date::Language ();
-our @ISA = qw(Date::Language);
-our $VERSION = "1.01";
-our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
 # In Finnish, the names of the months and days are only capitalized at the beginning of sentences.
-@MoY  = map($_ . "kuu", qw(tammi helmi maalis huhti touko kes‰ hein‰ elo syys loka marras joulu));
-@DoW  = qw(sunnuntai maanantai tiistai keskiviikko torstai perjantai lauantai);
+our @MoY  = map($_ . "kuu", qw(tammi helmi maalis huhti touko kes√§ hein√§ elo syys loka marras joulu));
+our @DoW  = qw(sunnuntai maanantai tiistai keskiviikko torstai perjantai lauantai);
 
 # it is not customary to use abbreviated names of months or days
 # per Graham's suggestion:
-@MoYs = @MoY;
-@DoWs = @DoW;
+our @MoYs = @MoY;
+our @DoWs = @DoW;
 
 # the short form of ordinals
-@Dsuf = ('.') x 31;
+our @Dsuf = ('.') x 31;
 
 # doesn't look like this is normally used...
-@AMPM = qw(ap ip);
+our @AMPM = qw(ap ip);
 
-
+our ( %MoY, %DoW );
 @MoY{@MoY}  = (0 .. scalar(@MoY));
 @MoY{@MoYs} = (0 .. scalar(@MoYs));
 @DoW{@DoW}  = (0 .. scalar(@DoW));

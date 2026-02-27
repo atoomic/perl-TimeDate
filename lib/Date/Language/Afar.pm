@@ -5,8 +5,10 @@
 package Date::Language::Afar;
 
 use Date::Language ();
+
+# VERSION: generated
+# ABSTRACT: Afar localization for Date::Format
 our @ISA = qw(Date::Language);
-our $VERSION = "0.99";
 our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
 @DoW = qw(Acaada Etleeni Talaata Arbaqa Kamiisi Gumqata Sabti);

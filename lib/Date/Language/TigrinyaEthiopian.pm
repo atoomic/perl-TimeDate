@@ -5,8 +5,11 @@
 package Date::Language::TigrinyaEthiopian;
 
 use Date::Language ();
-our @ISA = qw(Date::Language);
-our $VERSION = "1.00";
+use base qw(Date::Language);
+
+# VERSION: generated
+# ABSTRACT: TigrinyaEthiopian localization for Date::Format
+
 our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
 if ( $] >= 5.006 ) {

@@ -37,7 +37,7 @@
 1.17 -- Sat Sep 19 10:56:12 CDT 2009
 
 Bugfixes
-  * RT#45067: Date::Format with %z gives wrong results for half-hour timezones (Ernesto Hernández-Novich)
+  * RT#45067: Date::Format with %z gives wrong results for half-hour timezones (Ernesto Hern?dez-Novich)
   * RT#48164: Date::Parse unable to set seconds correctly
   * RT#17396: Parse error for french date with 'mars' (march) as month
 
@@ -140,7 +140,7 @@ Change 744 on 2002/09/16 by <gbarr@pobox.com> (Graham Barr)
 Change 743 on 2002/09/16 by <gbarr@pobox.com> (Graham Barr)
 
 	Add Date::Language::Brazilian from Christian Tosta
-	Add Date::Language::Danish from Lars Skjærlund
+	Add Date::Language::Danish from Lars Skj?lund
 
 Change 742 on 2002/09/16 by <gbarr@pobox.com> (Graham Barr)
 

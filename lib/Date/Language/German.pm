@@ -4,21 +4,27 @@
 
 package Date::Language::German;
 
-use Date::Language ();
-our @ISA = qw(Date::Language);
-our $VERSION = "1.02";
-our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
-
-@MoY  = qw(Januar Februar März April Mai Juni
-	   Juli August September Oktober November Dezember);
-@MoYs = qw(Jan Feb Mär Apr Mai Jun Jul Aug Sep Okt Nov Dez);
-@DoW  = qw(Sonntag Montag Dienstag Mittwoch Donnerstag Freitag Samstag);
-@DoWs = qw(Son Mon Die Mit Don Fre Sam);
+use strict;
+use warnings;
+use utf8;
 
 use Date::Language::English ();
-@AMPM =   @{Date::Language::English::AMPM};
-@Dsuf =   @{Date::Language::English::Dsuf};
 
+use base 'Date::Language';
+
+# VERSION: generated
+# ABSTRACT: German localization for Date::Format
+
+our @MoY  = qw(Januar Februar MÃ¤rz April Mai Juni
+	   Juli August September Oktober November Dezember);
+our @MoYs = qw(Jan Feb MÃ¤r Apr Mai Jun Jul Aug Sep Okt Nov Dez);
+our @DoW  = qw(Sonntag Montag Dienstag Mittwoch Donnerstag Freitag Samstag);
+our @DoWs = qw(Son Mon Die Mit Don Fre Sam);
+
+our @AMPM =   @{Date::Language::English::AMPM};
+our @Dsuf =   @{Date::Language::English::Dsuf};
+
+our ( %MoY, %DoW );
 @MoY{@MoY}  = (0 .. scalar(@MoY));
 @MoY{@MoYs} = (0 .. scalar(@MoYs));
 @DoW{@DoW}  = (0 .. scalar(@DoW));

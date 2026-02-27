@@ -4,21 +4,28 @@
 
 package Date::Language::Danish;
 
+use strict;
+use warnings;
+use utf8;
 use Date::Language ();
-our @ISA = qw(Date::Language);
-our $VERSION = "1.01";
-our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
-@MoY  = qw(Januar Februar Marts April Maj Juni
-	   Juli August September Oktober November December);
-@MoYs = qw(Jan Feb Mar Apr Maj Jun Jul Aug Sep Okt Nov Dec);
-@DoW  = qw(Søndag Mandag Tirsdag Onsdag Torsdag Fredag Lørdag Søndag);
-@DoWs = qw(Søn Man Tir Ons Tor Fre Lør Søn);
+use base 'Date::Language';
 
 use Date::Language::English ();
-@AMPM =   @{Date::Language::English::AMPM};
-@Dsuf =   @{Date::Language::English::Dsuf};
 
+# VERSION: generated
+# ABSTRACT: Danish localization for Date::Format
+
+our @MoY  = qw(Januar Februar Marts April Maj Juni
+our 	   Juli August September Oktober November December);
+our @MoYs = qw(Jan Feb Mar Apr Maj Jun Jul Aug Sep Okt Nov Dec);
+our @DoW  = qw(SÃ¸ndag Mandag Tirsdag Onsdag Torsdag Fredag LÃ¸rdag SÃ¸ndag);
+our @DoWs = qw(SÃ¸n Man Tir Ons Tor Fre LÃ¸r SÃ¸n);
+
+our @AMPM =   @{Date::Language::English::AMPM};
+our @Dsuf =   @{Date::Language::English::Dsuf};
+
+our ( %MoY, %DoW );
 @MoY{@MoY}  = (0 .. scalar(@MoY));
 @MoY{@MoYs} = (0 .. scalar(@MoYs));
 @DoW{@DoW}  = (0 .. scalar(@DoW));

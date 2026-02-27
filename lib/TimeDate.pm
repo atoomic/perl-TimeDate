@@ -1,6 +1,7 @@
 package TimeDate;
 
-our $VERSION = "1.21";
+# VERSION: generated
+# ABSTRACT: Date and time formating subroutines
 
 =pod
 

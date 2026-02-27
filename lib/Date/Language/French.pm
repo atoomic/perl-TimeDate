@@ -4,21 +4,27 @@
 
 package Date::Language::French;
 
+use strict;
+use warnings;
+use utf8;
 use Date::Language ();
-our @ISA = qw(Date::Language);
-our $VERSION = "1.04";
-our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
-@DoW = qw(dimanche lundi mardi mercredi jeudi vendredi samedi);
-@MoY = qw(janvier février mars avril mai juin 
-          juillet août septembre octobre novembre décembre);
-@DoWs = map { substr($_,0,3) } @DoW;
-@MoYs = map { substr($_,0,3) } @MoY;
+use base 'Date::Language';
+
+# VERSION: generated
+# ABSTRACT: French localization for Date::Format
+
+our @DoW = qw(dimanche lundi mardi mercredi jeudi vendredi samedi);
+our @MoY = qw(janvier fÃ©vrier mars avril mai juin 
+          juillet aoÃ»t septembre octobre novembre dÃ©cembre);
+our @DoWs = map { substr($_,0,3) } @DoW;
+our @MoYs = map { substr($_,0,3) } @MoY;
 $MoYs[6] = 'jul';
-@AMPM = qw(AM PM);
 
-@Dsuf = ((qw(er e e e e e e e e e)) x 3, 'er');
+our @AMPM = qw(AM PM);
+our @Dsuf = ((qw(er e e e e e e e e e)) x 3, 'er');
 
+our ( %MoY, %DoW );
 @MoY{@MoY}  = (0 .. scalar(@MoY));
 @MoY{@MoYs} = (0 .. scalar(@MoYs));
 @DoW{@DoW}  = (0 .. scalar(@DoW));

@@ -1,7 +1,7 @@
 #----------------------------------------------------#
 #
 # Turkish tables
-# Burak Gürsoy <burak@cpan.org>
+# Burak GÃ¼rsoy <burak@cpan.org>
 # Last modified: Sat Nov 15 20:28:32 2003
 #
 # use Date::Language;
@@ -11,33 +11,35 @@
 #----------------------------------------------------#
 
 package Date::Language::Turkish;
-use Date::Language ();
-our @ISA = qw(Date::Language);
-our $VERSION = "1.0";
-our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
+use base 'Date::Language';
 
-@DoW = qw(Pazar Pazartesi Salý Çarþamba Perþembe Cuma Cumartesi);
-@MoY = qw(Ocak Þubat Mart  Nisan Mayýs Haziran Temmuz Aðustos Eylül Ekim Kasým Aralýk);
-@DoWs     = map { substr($_,0,3) } @DoW;
+# VERSION: generated
+# ABSTRACT: Turkish localization for Date::Format
+
+our @DoW = qw(Pazar Pazartesi SalÃ½ Ã‡arÃ¾amba PerÃ¾embe Cuma Cumartesi);
+our @MoY = qw(Ocak Ãžubat Mart  Nisan MayÃ½s Haziran Temmuz AÃ°ustos EylÃ¼l Ekim KasÃ½m AralÃ½k);
+our @DoWs     = map { substr($_,0,3) } @DoW;
 $DoWs[1]  = 'Pzt'; # Since we'll get two 'Paz' s
 $DoWs[-1] = 'Cmt'; # Since we'll get two 'Cum' s
-@MoYs     = map { substr($_,0,3) } @MoY;
-@AMPM     = ('',''); # no am-pm thingy
+our @MoYs     = map { substr($_,0,3) } @MoY;
+our @AMPM     = ('',''); # no am-pm thingy
 
 # not easy as in english... maybe we can just use a dot "." ? :)
-my %DsufMAP = (
+our %DsufMAP = (
 (map {$_ => 'inci', $_+10 => 'inci', $_+20 => 'inci' } 1,2,5,8 ),
 (map {$_ =>  'nci', $_+10 =>  'nci', $_+20 =>  'nci' } 7       ),
 (map {$_ =>  'nci', $_+10 =>  'nci', $_+20 =>  'nci' } 2       ),
-(map {$_ => 'üncü', $_+10 => 'üncü', $_+20 => 'üncü' } 3,4     ),
+(map {$_ => 'Ã¼ncÃ¼', $_+10 => 'Ã¼ncÃ¼', $_+20 => 'Ã¼ncÃ¼' } 3,4     ),
 (map {$_ => 'uncu', $_+10 => 'uncu', $_+20 => 'uncu' } 9       ),
-(map {$_ =>  'ncý', $_+10 =>  'ncý', $_+20 =>  'ncý' } 6       ),
+(map {$_ =>  'ncÃ½', $_+10 =>  'ncÃ½', $_+20 =>  'ncÃ½' } 6       ),
 (map {$_ => 'uncu',                                  } 10,30   ),
       20 =>  'nci',
       31 => 'inci',
 );
 
-@Dsuf       = map{ $DsufMAP{$_} } sort {$a <=> $b} keys %DsufMAP;
+our @Dsuf       = map{ $DsufMAP{$_} } sort {$a <=> $b} keys %DsufMAP;
+
+our ( %MoY, %DoW );
 @MoY{@MoY}  = (0 .. scalar(@MoY));
 @MoY{@MoYs} = (0 .. scalar(@MoYs));
 @DoW{@DoW}  = (0 .. scalar(@DoW));

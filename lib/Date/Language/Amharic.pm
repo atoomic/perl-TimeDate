@@ -5,8 +5,10 @@
 package Date::Language::Amharic;
 
 use Date::Language ();
+
+# VERSION: generated
+# ABSTRACT: Amharic localization for Date::Format
 our @ISA = qw(Date::Language);
-our $VERSION = "1.00";
 our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
 if ( $] >= 5.006 ) {

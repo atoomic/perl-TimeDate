@@ -82,10 +82,7 @@ else {
 @Dsuf = ("ይ" x 31);
 }
 
-@MoY{@MoY}  = (0 .. scalar(@MoY));
-@MoY{@MoYs} = (0 .. scalar(@MoYs));
-@DoW{@DoW}  = (0 .. scalar(@DoW));
-@DoW{@DoWs} = (0 .. scalar(@DoWs));
+Date::Language::_build_lookups();
 
 # Formatting routines
 

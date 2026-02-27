@@ -24,10 +24,7 @@ our @AMPM = qw(AM PM);
 our @Dsuf = ((qw(ro do ro to to to mo vo no mo)) x 3, 'ro');
 
 our ( %MoY, %DoW );
-@MoY{@MoY}  = (0 .. scalar(@MoY));
-@MoY{@MoYs} = (0 .. scalar(@MoYs));
-@DoW{@DoW}  = (0 .. scalar(@DoW));
-@DoW{@DoWs} = (0 .. scalar(@DoWs));
+Date::Language::_build_lookups();
 
 # Formatting routines
 

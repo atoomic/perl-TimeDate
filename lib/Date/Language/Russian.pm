@@ -97,10 +97,7 @@ our (@DoW, @DoWs, @MoY, @MoYs, @MoY2, @DoWs2, @AMPM, @Dsuf, %MoY, %DoW);
     "\xd0\xd0",  # пп
 );
 
-@MoY{@MoY}  = (0 .. scalar(@MoY));
-@MoY{@MoYs} = (0 .. scalar(@MoYs));
-@DoW{@DoW}  = (0 .. scalar(@DoW));
-@DoW{@DoWs} = (0 .. scalar(@DoWs));
+Date::Language::_build_lookups();
 
 # Formatting routines
 

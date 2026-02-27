@@ -14,7 +14,7 @@ use Date::Language::English ();
 # VERSION: generated
 # ABSTRACT: Austrian localization for Date::Format
 
-our @ISA = qw(Date::Language);
+use base 'Date::Language';
 
 our @MoY  = qw(Jänner Feber März April Mai Juni
        Juli August September Oktober November Dezember);
@@ -27,10 +27,7 @@ our @AMPM = @{Date::Language::English::AMPM};
 our @Dsuf = @{Date::Language::English::Dsuf};
 
 our ( %MoY, %DoW );
-@MoY{@MoY}  = (0 .. scalar(@MoY));
-@MoY{@MoYs} = (0 .. scalar(@MoYs));
-@DoW{@DoW}  = (0 .. scalar(@DoW));
-@DoW{@DoWs} = (0 .. scalar(@DoWs));
+Date::Language::_build_lookups();
 
 # Formatting routines
 

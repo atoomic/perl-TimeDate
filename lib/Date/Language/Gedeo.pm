@@ -8,10 +8,11 @@ use strict;
 use warnings;
 
 use Date::Language ();
+use base 'Date::Language';
 
 # VERSION: generated
 # ABSTRACT: Gedeo localization for Date::Format
-our @ISA = qw(Date::Language);
+
 our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
 @DoW = qw( Sanbbattaa Sanno Masano Roobe Hamusse Arbe Qiddamme);
@@ -39,10 +40,7 @@ $DoWs[1] = "Sno";
 @Dsuf[11,12,13] = qw(th th th);
 @Dsuf[30,31] = qw(th st);
 
-@MoY{@MoY}  = (0 .. scalar(@MoY));
-@MoY{@MoYs} = (0 .. scalar(@MoYs));
-@DoW{@DoW}  = (0 .. scalar(@DoW));
-@DoW{@DoWs} = (0 .. scalar(@DoWs));
+Date::Language::_build_lookups();
 
 # Formatting routines
 

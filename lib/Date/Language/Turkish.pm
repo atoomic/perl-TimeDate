@@ -11,6 +11,9 @@
 #----------------------------------------------------#
 
 package Date::Language::Turkish;
+
+use strict;
+use warnings;
 use base 'Date::Language';
 
 # VERSION: generated

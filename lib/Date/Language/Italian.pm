@@ -4,6 +4,8 @@
 
 package Date::Language::Italian;
 
+use strict;
+use warnings;
 use Date::Language ();
 use base 'Date::Language';
 

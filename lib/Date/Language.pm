@@ -8,7 +8,7 @@ use     Carp;
 require Date::Format;
 
 # VERSION: generated
-# ABSTRACT: Language specific date formating and parsing
+# ABSTRACT: Language specific date formatting and parsing
 
 use base qw(Date::Format::Generic);
 

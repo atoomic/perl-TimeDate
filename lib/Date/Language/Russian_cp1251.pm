@@ -4,6 +4,8 @@
 
 package Date::Language::Russian_cp1251;
 
+use strict;
+use warnings;
 use base 'Date::Language';
 use Date::Language ();
 

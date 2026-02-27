@@ -10,7 +10,7 @@ use warnings;
 use utf8;
 use Date::Language ();
 
-use base qw(Date::Language Date::Format::Generic);
+use base 'Date::Language';
 
 # VERSION: generated
 # ABSTRACT: Czech localization for Date::Format

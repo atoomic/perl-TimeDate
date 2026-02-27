@@ -4,6 +4,9 @@
 
 package Date::Language::Amharic;
 
+use strict;
+use warnings;
+
 use Date::Language ();
 
 # VERSION: generated

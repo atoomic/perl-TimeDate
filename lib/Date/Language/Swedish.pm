@@ -6,6 +6,8 @@
 
 package Date::Language::Swedish;
 
+use strict;
+use warnings;
 use base 'Date::Language';
 use Date::Language::English ();
 

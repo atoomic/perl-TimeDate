@@ -4,6 +4,9 @@
 
 package Date::Language::TigrinyaEthiopian;
 
+use strict;
+use warnings;
+
 use Date::Language ();
 use base qw(Date::Language);
 

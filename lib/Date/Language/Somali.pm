@@ -4,6 +4,9 @@
 
 package Date::Language::Somali;
 
+use strict;
+use warnings;
+
 use Date::Language ();
 use base 'Date::Language';
 

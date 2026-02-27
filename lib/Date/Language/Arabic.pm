@@ -1,10 +1,15 @@
 package Date::Language::Arabic;
 
-use Date::Language ();
-our @ISA = qw(Date::Language);
-our $VERSION = "1.00";
-our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
+use strict;
+use warnings;
 use utf8;
+use Date::Language ();
+use base 'Date::Language';
+
+# VERSION: generated
+# ABSTRACT: Arabic localization for Date::Format
+
+our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
 @DoW = qw(الأحد الاثنين الثلاثاء الأربعاء الخميس الجمعة السبت);
 @MoY = qw(يناير فبراير مسيرة أبريل مايو يونيو يوليو أغسطس سبتمبر أكتوبر نوفمبر ديسمبر);

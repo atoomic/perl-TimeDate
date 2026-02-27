@@ -4,6 +4,8 @@
 
 package Date::Language::TigrinyaEritrean;
 
+use strict;
+use warnings;
 use base 'Date::Language';
 
 # VERSION: generated

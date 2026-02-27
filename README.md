@@ -1,6 +1,6 @@
 # NAME
 
-TimeDate - Date and time formating subroutines
+TimeDate - Date and time formatting subroutines
 
 # VERSION
 

@@ -5,12 +5,14 @@
 
 package Date::Language::Dutch;
 
+use strict;
+use warnings;
 use Date::Language ();
+use base 'Date::Language';
 
 # VERSION: generated
 # ABSTRACT: Dutch localization for Date::Format
-our @ISA = qw(Date::Language);
-our $VERSION = "1.02";
+
 our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
 @MoY  = qw(januari februari maart april mei juni juli

@@ -7,7 +7,7 @@ use warnings;
 use ExtUtils::MakeMaker;
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "Date and time formating subroutines",
+  "ABSTRACT" => "Date and time formatting subroutines",
   "AUTHOR" => "Graham <gbarr\@pobox.com>",
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0

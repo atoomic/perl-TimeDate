@@ -19,8 +19,8 @@ use Date::Language::English ();
 our @MoY  = qw(Januar Februar Marts April Maj Juni
        Juli August September Oktober November December);
 our @MoYs = qw(Jan Feb Mar Apr Maj Jun Jul Aug Sep Okt Nov Dec);
-our @DoW  = qw(Søndag Mandag Tirsdag Onsdag Torsdag Fredag Lørdag Søndag);
-our @DoWs = qw(Søn Man Tir Ons Tor Fre Lør Søn);
+our @DoW  = qw(Søndag Mandag Tirsdag Onsdag Torsdag Fredag Lørdag);
+our @DoWs = qw(Søn Man Tir Ons Tor Fre Lør);
 
 our @AMPM =   @{Date::Language::English::AMPM};
 our @Dsuf =   @{Date::Language::English::Dsuf};

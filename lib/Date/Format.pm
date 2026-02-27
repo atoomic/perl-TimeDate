@@ -10,6 +10,8 @@ require Exporter;
 # VERSION: generated
 # ABSTRACT: Date formatting subroutines
 
+use Date::Format::Generic;
+
 our @ISA     = qw(Exporter);
 our @EXPORT  = qw(time2str strftime ctime asctime);
 
@@ -26,16 +28,14 @@ sub strftime ($\@;$)
 sub ctime ($;$)
 {
  my ($t,$tz) = @_;
- Date::Format::Generic->time2str("%a %b %e %T %Y\n", $t, $tz); 
+ Date::Format::Generic->time2str("%a %b %e %T %Y\n", $t, $tz);
 }
 
 sub asctime (\@;$)
 {
  my ($t,$tz) = @_;
- Date::Format::Generic->strftime("%a %b %e %T %Y\n", $t, $tz); 
+ Date::Format::Generic->strftime("%a %b %e %T %Y\n", $t, $tz);
 }
-
-use Date::Format::Generic;
 
 1;
 __END__
@@ -47,21 +47,21 @@ Date::Format - Date formatting subroutines
 =head1 SYNOPSIS
 
 	use Date::Format;
-	
+
 	my @lt = localtime(time);
-	
+
 	my $template = "....";
 
 	print time2str($template, time);
 	print strftime($template, @lt);
-	
+
 	my $zone;
 	print time2str($template, time, $zone);
 	print strftime($template, @lt, $zone);
-	
+
 	print ctime(time);
 	print asctime(@lt);
-	
+
 	print ctime(time, $zone);
 	print asctime(@lt, $zone);
 
@@ -135,7 +135,7 @@ category of the program's locale.
 	%M 	minute, leading 0's
 	%n 	NEWLINE
 	%o	ornate day of month -- "1st", "2nd", "25th", etc.
-	%p 	AM or PM 
+	%p 	AM or PM
 	%P 	am or pm (Yes %p and %P are backwards :)
 	%q	Quarter number, starting with 1
 	%r 	time format: 09:05:57 PM

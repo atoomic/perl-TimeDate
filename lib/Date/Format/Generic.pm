@@ -17,13 +17,13 @@ use Time::Local;
 sub ctime
 {
  my($me,$t,$tz) = @_;
- $me->time2str("%a %b %e %T %Y\n", $t, $tz); 
+ $me->time2str("%a %b %e %T %Y\n", $t, $tz);
 }
 
 sub asctime
 {
  my($me,$t,$tz) = @_;
- $me->strftime("%a %b %e %T %Y\n", $t, $tz); 
+ $me->strftime("%a %b %e %T %Y\n", $t, $tz);
 }
 
 sub _subs
@@ -38,7 +38,7 @@ sub _subs
  $_[1];
 }
 
-sub strftime 
+sub strftime
 {
  my($pkg,$fmt,$time);
 
@@ -139,7 +139,7 @@ sub wkyr {
 }
 
 ##
-## these 6 formatting routins need to be *copied* into the language
+## these 6 formatting routines need to be *copied* into the language
 ## specific packages
 ##
 
@@ -184,10 +184,10 @@ sub format_L { $_[0]->[4] + 1 }
 sub format_m { sprintf("%02d",$_[0]->[4] + 1) }
 sub format_M { sprintf("%02d",$_[0]->[1]) }
 sub format_q { sprintf("%01d",int($_[0]->[4] / 3) + 1) }
-sub format_s { 
+sub format_s {
    $epoch = timelocal(@{$_[0]}[0..5])
     unless defined $epoch;
-   sprintf("%d",$epoch) 
+   sprintf("%d",$epoch)
 }
 sub format_S { sprintf("%02d",$_[0]->[0]) }
 sub format_U { wkyr(0, $_[0]->[6], $_[0]->[7]) }
@@ -208,8 +208,8 @@ sub format_z {
 }
 
 sub format_c { &format_x . " " . &format_X }
-sub format_D { &format_m . "/" . &format_d . "/" . &format_y  }      
-sub format_r { &format_I . ":" . &format_M . ":" . &format_S . " " . &format_p  }   
+sub format_D { &format_m . "/" . &format_d . "/" . &format_y  }
+sub format_r { &format_I . ":" . &format_M . ":" . &format_S . " " . &format_p  }
 sub format_R { &format_H . ":" . &format_M }
 sub format_T { &format_H . ":" . &format_M . ":" . &format_S }
 sub format_t { "\t" }

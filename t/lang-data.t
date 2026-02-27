@@ -31,7 +31,7 @@ my %expected = (
     Icelandic            => { A => "\x{de}ri\x{f0}judagur",                                               a => "\x{de}ri",                                   B => "September",                                                                b => "Sep" },
     Italian              => { A => "Martedi",                                                              a => "Mar",                                        B => "Settembre",                                                                b => "Set" },
     Norwegian            => { A => "Tirsdag",                                                              a => "Tir",                                        B => "September",                                                                b => "Sep" },
-    Occitan              => { A => "dimars",                                                               a => "dim",                                        B => "oct\x{c3}\x{b2}bre",                                                      b => "oct" },
+    Occitan              => { A => "dimars",                                                               a => "dim",                                        B => "setembre",                                                                 b => "set" },
     Oromo                => { A => "Qibxata",                                                              a => "Qib",                                        B => "Fuulbana",                                                                 b => "Fuu" },
     Romanian             => { A => "marti",                                                                a => "mar",                                        B => "septembrie",                                                               b => "sep" },
     Russian              => { A => "\x{f3}\x{d2}\x{c5}\x{c4}\x{c1}",                                     a => "\x{f3}\x{d2}",                               B => "\x{f3}\x{c5}\x{ce}\x{d4}\x{d1}\x{c2}\x{d2}\x{d1}",                       b => "\x{f3}\x{c5}\x{ce}" },
@@ -44,7 +44,7 @@ my %expected = (
     Tigrinya             => { A => "\x{1230}\x{1209}\x{1235}",                                            a => "\x{1230}\x{1209}\x{1235}",                   B => "\x{1234}\x{1355}\x{1274}\x{121d}\x{1260}\x{122d}",                        b => "\x{1234}\x{1355}\x{1274}" },
     TigrinyaEritrean     => { A => "\x{1230}\x{1209}\x{1235}",                                            a => "\x{1230}\x{1209}\x{1235}",                   B => "\x{1234}\x{1355}\x{1274}\x{121d}\x{1260}\x{122d}",                        b => "\x{1234}\x{1355}\x{1274}" },
     TigrinyaEthiopian    => { A => "\x{1230}\x{1209}\x{1235}",                                            a => "\x{1230}\x{1209}\x{1235}",                   B => "\x{1234}\x{1355}\x{1274}\x{121d}\x{1260}\x{122d}",                        b => "\x{1234}\x{1355}\x{1274}" },
-    Turkish              => { A => "Sal\x{c3}\x{bd}",                                                     a => "Sal",                                        B => "Eyl\x{c3}\x{bc}l",                                                        b => "Eyl" },
+    Turkish              => { A => "Sal\x{131}",                                                           a => "Sal",                                        B => "Eyl\x{fc}l",                                                              b => "Eyl" },
 );
 
 for my $lang (sort keys %expected) {
@@ -61,23 +61,10 @@ for my $lang (sort keys %expected) {
     no strict 'refs';
     my $pkg = "Date::Language::$lang";
 
-    # Known bugs: Danish/Icelandic/Norwegian have Sunday listed twice (8 entries)
-    my $dow_todo = ($lang =~ /^(Danish|Icelandic|Norwegian)$/)
-        ? "BUG: $lang has Sunday listed twice in \@DoW" : undef;
-    # Known bug: Occitan is missing September (11 entries)
-    my $moy_todo = ($lang eq 'Occitan')
-        ? "BUG: Occitan is missing setembre in \@MoY" : undef;
-
-    TODO: {
-        local $TODO = $dow_todo;
-        is(scalar @{"${pkg}::DoW"},  7,  "$lang: 7 day names");
-        is(scalar @{"${pkg}::DoWs"}, 7,  "$lang: 7 short day names");
-    }
-    TODO: {
-        local $TODO = $moy_todo;
-        is(scalar @{"${pkg}::MoY"},  12, "$lang: 12 month names");
-        is(scalar @{"${pkg}::MoYs"}, 12, "$lang: 12 short month names");
-    }
+    is(scalar @{"${pkg}::DoW"},  7,  "$lang: 7 day names");
+    is(scalar @{"${pkg}::DoWs"}, 7,  "$lang: 7 short day names");
+    is(scalar @{"${pkg}::MoY"},  12, "$lang: 12 month names");
+    is(scalar @{"${pkg}::MoYs"}, 12, "$lang: 12 short month names");
     is(scalar @{"${pkg}::AMPM"}, 2,  "$lang: 2 AM/PM entries");
 }
 

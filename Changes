@@ -266,7 +266,7 @@ Change 579 on 2000/09/04 by <gbarr@pobox.com> (Graham Barr)
 
 	Date::Parse
 	- Support for more date formats
-	
+
 	Time::Zone
 	- Added more zones
 
@@ -340,7 +340,7 @@ Change 180 on 1998/08/05 by <gbarr@pobox.com> (Graham Barr)
 	- Added Date::Language::French contributed by
 	  Emmanuel Bataille (bem@residents.frmug.org)
 	- Split out the languages into .pm's
-	
+
 	Date::Parse
 	- Added patch from Alan Burlison to Date::Parse to allow zone
 	  offests +7, +10 and +700
@@ -352,7 +352,7 @@ Fri Jan  2 1998 <gbarr@pobox.com> (Graham Barr)
 
 	Date::Format, Time::Zone
 	- Fix for formatting %z and %Z
-	
+
 	all
 	- Update Email address and year
 

@@ -1,7 +1,7 @@
 ##
 ## Czech tables
 ##
-## Contributed by Honza Pazdziora 
+## Contributed by Honza Pazdziora
 
 package Date::Language::Czech;
 

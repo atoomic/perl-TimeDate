@@ -1,28 +1,61 @@
 ##
-## Russian cp1251
+## Russian cp1251 (CP1251 byte encoding)
 ##
 
 package Date::Language::Russian_cp1251;
 
 use strict;
 use warnings;
-use base 'Date::Language';
+
 use Date::Language ();
 
+use base 'Date::Language';
+
 # VERSION: generated
-# ABSTRACT: Russian_cp1251 localization for Date::Format
+# ABSTRACT: Russian localization for Date::Format (CP1251)
 
-our @DoW = qw(Âîñêðåñåíüå Ïîíåäåëüíèê Âòîðíèê Ñðåäà ×åòâåðã Ïÿòíèöà Ñóááîòà);
-our @MoY = qw(ßíâàðü Ôåâðàëü Ìàðò Àïðåëü Ìàé Èþíü
-      Èþëü Àâãóñò Ñåíòÿáðü Îêòÿáðü Íîÿáðü Äåêàáðü);
-our @DoWs = qw(Âñê Ïíä Âòð Ñðä ×òâ Ïòí Ñáò);
+our (@DoW, @DoWs, @MoY, @MoYs, @AMPM, @Dsuf, %MoY, %DoW);
 
-our @MoYs = map { substr($_,0,3) } @MoY;
-our @AMPM = qw(AM PM);
+@DoW = (
+    "\xc2\xee\xf1\xea\xf0\xe5\xf1\xe5\xed\xfc\xe5",    # Воскресенье
+    "\xcf\xee\xed\xe5\xe4\xe5\xeb\xfc\xed\xe8\xea",      # Понедельник
+    "\xc2\xf2\xee\xf0\xed\xe8\xea",                        # Вторник
+    "\xd1\xf0\xe5\xe4\xe0",                                # Среда
+    "\xd7\xe5\xf2\xe2\xe5\xf0\xe3",                        # Четверг
+    "\xcf\xff\xf2\xed\xe8\xf6\xe0",                        # Пятница
+    "\xd1\xf3\xe1\xe1\xee\xf2\xe0",                        # Суббота
+);
 
-our @Dsuf = ('e') x 31;
+@MoY = (
+    "\xdf\xed\xe2\xe0\xf0\xfc",               # Январь
+    "\xd4\xe5\xe2\xf0\xe0\xeb\xfc",           # Февраль
+    "\xcc\xe0\xf0\xf2",                        # Март
+    "\xc0\xef\xf0\xe5\xeb\xfc",               # Апрель
+    "\xcc\xe0\xe9",                             # Май
+    "\xc8\xfe\xed\xfc",                         # Июнь
+    "\xc8\xfe\xeb\xfc",                         # Июль
+    "\xc0\xe2\xe3\xf3\xf1\xf2",               # Август
+    "\xd1\xe5\xed\xf2\xff\xe1\xf0\xfc",       # Сентябрь
+    "\xce\xea\xf2\xff\xe1\xf0\xfc",           # Октябрь
+    "\xcd\xee\xff\xe1\xf0\xfc",               # Ноябрь
+    "\xc4\xe5\xea\xe0\xe1\xf0\xfc",           # Декабрь
+);
 
-our ( %MoY, %DoW );
+@DoWs = (
+    "\xc2\xf1\xea",  # Вск
+    "\xcf\xed\xe4",  # Пнд
+    "\xc2\xf2\xf0",  # Втр
+    "\xd1\xf0\xe4",  # Срд
+    "\xd7\xf2\xe2",  # Чтв
+    "\xcf\xf2\xed",  # Птн
+    "\xd1\xe1\xf2",  # Сбт
+);
+
+@MoYs = map { substr($_,0,3) } @MoY;
+@AMPM = qw(AM PM);
+
+@Dsuf = ('e') x 31;
+
 @MoY{@MoY}  = (0 .. scalar(@MoY));
 @MoY{@MoYs} = (0 .. scalar(@MoYs));
 @DoW{@DoW}  = (0 .. scalar(@DoW));

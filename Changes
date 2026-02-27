@@ -1,3 +1,21 @@
+Revision history for TimeDate distribution.
+
+{{$NEXT}}
+
+  * doc: Increase POD coverage
+  * refactor: extract _build_lookups helper, remove hash-building duplication
+  * fix: correct language data bugs and minor code review fixes
+  * Fixup utf8 and add tests
+  * Use Dist::Zilla for the distro
+  * rebase: apply review feedback on #52
+  * fix: uncomment Indian Standard timezone (IST)
+  * feat: support boost C++ timestamp format (%Y-%b-%d %H:%M:%S.%f)
+  * fix: correct typos across documentation and comments
+  * stop using use vars
+  * rebase: apply review feedback on #49
+  * Remove limitation from Date::Parse
+  * Create Arabic.pm
+
 2.33 -- Wed May 19 11:34:00 MT 2020
 
   * Remove PAX Headers in tarball using GNU tar

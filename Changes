@@ -2,6 +2,8 @@ Revision history for TimeDate distribution.
 
 {{$NEXT}}
 
+2.34      2026-02-27 17:00:48-07:00 America/Denver
+
   * doc: Increase POD coverage
   * refactor: extract _build_lookups helper, remove hash-building duplication
   * fix: correct language data bugs and minor code review fixes
